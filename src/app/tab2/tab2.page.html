@@ -1,17 +1,69 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content
+  [scrollEvents]="true"
+  (ionScrollStart)="logScrollStart()"
+  (ionScroll)="logScrolling($event)"
+  (ionScrollEnd)="logScrollEnd()"
+  style="width: 100%;">
+<ion-list>
+  <ion-list-header>
+    <ion-label style="font-size: 2rem;text-align: center;">AGREGAR USUARIO</ion-label>
+  </ion-list-header>
+  <ion-item style="width: 100%;">
+    <ion-item style="width: 100%;">
+      <ion-label position="stacked">Username</ion-label>
+      <ion-input [(ngModel)]='usuario.username' ></ion-input>
+    </ion-item>
+  </ion-item>
+  <ion-item>
+    <ion-item style="width: 100%;">
+      <ion-label position="stacked">Nombre</ion-label>
+      <ion-input [(ngModel)]='usuario.nombre'></ion-input>
+    </ion-item>
+  </ion-item>
+  <ion-item>
+    <ion-item style="width: 100%;">
+      <ion-label position="stacked">Apellido</ion-label>
+      <ion-input [(ngModel)]='usuario.apellido'></ion-input>
+    </ion-item>
+  </ion-item>
+  <ion-item>
+    <ion-item style="width: 100%;">
+      <ion-label position="stacked">Password</ion-label>
+      <ion-input type='password' [(ngModel)]='usuario.password'></ion-input>
+    </ion-item>
+  </ion-item>
+  <ion-item>
+    <ion-item style="width: 100%;">
+      <ion-label position="stacked">Fecha Nacimiento</ion-label>
+      <ion-datetime  display-timezone="utc"  [(ngModel)]='fechastring'></ion-datetime>
+    </ion-item>
+  </ion-item>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <ion-item style="width: 100%;height: 250px;">
+    <ion-item style="width: 100%;height: 250px; ">
+        <ion-img [src]="urlPhoto"  style="width: 100%; height: 230px; margin-left: auto;"></ion-img>
+    </ion-item>
+  </ion-item>
+
+  <ion-item style="width: 100%;">
+    <ion-item style="width: 100%;">
+      <ion-button size="large" (click)='addPhotoToGallery()' style="width: 100%; ">
+        <ion-icon name="camera"></ion-icon>
+        Camara
+      </ion-button>
+    </ion-item>
+  </ion-item>
+  <ion-item style="width: 100%;">
+    <ion-item style="width: 100%;">
+      <ion-button size="large" (click)='Grabar_Usuario()' style="width: 100%;">Guardar</ion-button>
+
+    </ion-item>
+  </ion-item>
+ 
+
+</ion-list>
+
+ 
+
 </ion-content>

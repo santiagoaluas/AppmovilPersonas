@@ -1,0 +1,7 @@
+{
+    "/api/*":{
+        "target":"https://protected-woodland-45407.herokuapp.com",
+        "secure": false,
+        "logLevel":"debug"
+    }
+}

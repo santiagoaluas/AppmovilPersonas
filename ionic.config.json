@@ -1,5 +1,7 @@
 {
   "name": "personasapp",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }

@@ -1,17 +1,27 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+<ion-content
+  [scrollEvents]="true"
+  (ionScrollStart)="logScrollStart()"
+  (ionScroll)="logScrolling($event)"
+  (ionScrollEnd)="logScrollEnd()"
+  style="width: 100%;">
+<ion-list>
+  <ion-list-header>
+    <ion-label style="font-size: 2rem;text-align: center">Lista Usuarios</ion-label>
+  </ion-list-header>
+  <ion-item *ngFor="let item of listaUsuarios" style="margin-top: 20px;">
     <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
+      <ion-avatar slot="start">
+        <img [src]="item.photo">
+      </ion-avatar>
+      <ion-title>{{item.username}}</ion-title>
+      <ion-buttons slot="primary">
+        <ion-button color="danger" fill="outline" (click)="Eliminar_Usuario(item.id)">
+          Delete
+          <ion-icon name="trash-outline" slot="end"></ion-icon>
+        </ion-button>
+      </ion-buttons>
     </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  </ion-item>
+  
+</ion-list>
 </ion-content>
